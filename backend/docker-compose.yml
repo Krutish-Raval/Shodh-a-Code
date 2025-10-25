@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    container_name: shodh_app
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb+srv://Krutish:learning123@cluster0.s9ri8.mongodb.net/shodh_contest_db?retryWrites=true&w=majority
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - shodh_network
+    privileged: true
+
+networks:
+  shodh_network:
+    driver: bridge
