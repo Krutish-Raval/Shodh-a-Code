@@ -1,73 +1,85 @@
-# React + TypeScript + Vite
+# Shodh-a-Code Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React TypeScript frontend for the Shodh-a-Code contest platform with real-time features.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Join Page**: Simple form to enter Contest ID and Username
+- **Contest Page**: Central hub with problem view, code editor, and live leaderboard
+- **Real-time Submissions**: Asynchronous submission flow with status polling
+- **Live Leaderboard**: Updates every 15 seconds to show current rankings
+- **Code Editor**: Syntax highlighting for Java, Python, C++, and C
+- **Responsive Design**: Built with Tailwind CSS for modern UI
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19 with TypeScript
+- Tailwind CSS for styling
+- React Router for navigation
+- React Ace Editor for code editing
+- Axios for API communication
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Install dependencies:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Start the development server:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+3. Open [http://localhost:5173](http://localhost:5173) in your browser
+
+## API Integration
+
+The frontend communicates with the backend API running on `http://localhost:8080/api`. Make sure the backend is running before starting the frontend.
+
+### Key API Endpoints Used:
+
+- `GET /api/contests/{contestId}` - Get contest details
+- `GET /api/contests/{contestId}/leaderboard` - Get leaderboard
+- `POST /api/submissions` - Submit code
+- `GET /api/submissions/{submissionId}` - Get submission status
+
+## Real-time Features
+
+### Submission Polling
+
+- When a user submits code, the frontend polls the submission status every 2 seconds
+- Shows live status updates: "Running", "Accepted", "Wrong Answer", etc.
+- Displays execution time and memory usage when available
+
+### Live Leaderboard
+
+- Automatically refreshes every 15 seconds
+- Highlights current user's position
+- Shows problem submission statuses with color coding
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── JoinPage.tsx          # Contest join form
+│   ├── ContestPage.tsx        # Main contest interface
+│   ├── ProblemView.tsx       # Problem description display
+│   ├── CodeEditor.tsx        # Code editor with syntax highlighting
+│   └── Leaderboard.tsx       # Live leaderboard component
+├── services/
+│   └── api.ts               # API service functions and types
+├── App.tsx                  # Main app with routing
+└── index.css               # Tailwind CSS imports
+```
+
+## Usage
+
+1. **Join Contest**: Enter a valid Contest ID and your username
+2. **Select Problem**: Choose from available problems in the sidebar
+3. **Write Code**: Use the code editor with syntax highlighting
+4. **Submit**: Click submit to run your code against test cases
+5. **Monitor**: Watch real-time status updates and leaderboard changes
