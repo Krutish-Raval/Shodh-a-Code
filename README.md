@@ -1,4 +1,4 @@
-# Shodh-a-Code 🚀
+# Shodh-a-Code 
 
 A full-stack competitive programming platform with real-time code execution, contest management, and live leaderboards. Built with Spring Boot, React, MongoDB Atlas, and Docker.
 
@@ -20,7 +20,7 @@ A full-stack competitive programming platform with real-time code execution, con
 
 ---
 
-## ✨ Features
+##  Features
 
 - **Live Code Execution**: Support for Java, Python, C++, and C with Docker-based sandboxed execution
 - **Contest Management**: Create and manage coding contests with multiple problems
@@ -55,7 +55,7 @@ A full-stack competitive programming platform with real-time code execution, con
 
 ---
 
-## 🚀 Setup Instructions
+##  Setup Instructions
 
 ### Prerequisites
 
@@ -181,7 +181,7 @@ Update `backend/src/main/resources/application.properties` to switch modes.
 
 ---
 
-## 📡 API Documentation
+##  API Documentation
 
 ### Base URL
 
@@ -303,7 +303,7 @@ http://localhost:8080/api
 
 ---
 
-## 🏗 Design Choices & Architecture
+##  Design Choices & Architecture
 
 ### Backend Architecture
 
@@ -604,7 +604,7 @@ Shodh-a-Code/
 
 ---
 
-## 💡 Usage
+##  Usage
 
 ### For Participants
 
@@ -686,13 +686,13 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
-## 📄 License
+## License
 
 This project is open-source and available under the MIT License.
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **Krutish Raval**
 
@@ -700,7 +700,7 @@ This project is open-source and available under the MIT License.
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Spring Boot for the robust backend framework
 - React and Vite for the modern frontend tooling
