@@ -604,7 +604,7 @@ Shodh-a-Code/
 
 ---
 
-##  Usage
+## Usage
 
 ### Quick Start Demo
 
