@@ -33,27 +33,12 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ contestId, currentUser }) => 
     return () => clearInterval(interval);
   }, [contestId]);
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'ACCEPTED':
-        return 'text-green-600 bg-green-100';
-      case 'WRONG_ANSWER':
-        return 'text-red-600 bg-red-100';
-      case 'TIME_LIMIT_EXCEEDED':
-        return 'text-yellow-600 bg-yellow-100';
-      case 'RUNTIME_ERROR':
-        return 'text-red-600 bg-red-100';
-      case 'COMPILATION_ERROR':
-        return 'text-red-600 bg-red-100';
-      default:
-        return 'text-gray-600 bg-gray-100';
-    }
-  };
-
-  const formatTime = (timeInSeconds: number) => {
-    const hours = Math.floor(timeInSeconds / 3600);
-    const minutes = Math.floor((timeInSeconds % 3600) / 60);
-    const seconds = timeInSeconds % 60;
+  const formatTime = (timeInMilliseconds: number) => {
+    // Backend returns time in milliseconds
+    const totalSeconds = Math.floor(timeInMilliseconds / 1000);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
     
     if (hours > 0) {
       return `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
@@ -155,7 +140,7 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ contestId, currentUser }) => 
                   </div>
                   <div>
                     <div className="flex items-center space-x-2">
-                      <span className="font-bold text-gray-800">{entry.userId}</span>
+                      <span className="font-bold text-gray-800">{entry.username}</span>
                       {entry.userId === currentUser && (
                         <span className="bg-gradient-to-r from-purple-500 to-blue-500 text-white text-xs px-2 py-1 rounded-full font-medium">
                           You
@@ -163,7 +148,7 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ contestId, currentUser }) => 
                       )}
                     </div>
                     <div className="text-sm text-gray-500">
-                      {entry.problemsSolved} problem{entry.problemsSolved !== 1 ? 's' : ''} solved
+                      {entry.acceptedSubmissions} problem{entry.acceptedSubmissions !== 1 ? 's' : ''} solved
                     </div>
                   </div>
                 </div>
@@ -175,21 +160,11 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ contestId, currentUser }) => 
                     </svg>
                     {formatTime(entry.totalTime)}
                   </div>
+                  <div className="text-xs text-gray-400 mt-1">
+                    {entry.totalSubmissions} submission{entry.totalSubmissions !== 1 ? 's' : ''}
+                  </div>
                 </div>
               </div>
-              
-              {entry.submissions.length > 0 && (
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {entry.submissions.map((submission, subIndex) => (
-                    <span
-                      key={subIndex}
-                      className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(submission.status)}`}
-                    >
-                      {submission.status}
-                    </span>
-                  ))}
-                </div>
-              )}
             </div>
           ))}
         </div>

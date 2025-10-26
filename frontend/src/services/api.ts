@@ -12,12 +12,13 @@ const api = axios.create({
 // Types
 export interface Contest {
   id: string;
-  name: string;
+  title: string;
   description: string;
   startTime: string;
   endTime: string;
   status: 'UPCOMING' | 'RUNNING' | 'FINISHED';
-  problems: Problem[];
+  problemIds: string[];
+  problems: Problem[]; // Populated separately
 }
 
 export interface Problem {
@@ -52,14 +53,11 @@ export interface Submission {
 
 export interface LeaderboardEntry {
   userId: string;
+  username: string;
+  totalSubmissions: number;
+  acceptedSubmissions: number;
   totalScore: number;
-  problemsSolved: number;
   totalTime: number;
-  submissions: Array<{
-    problemId: string;
-    status: string;
-    submissionTime: string;
-  }>;
 }
 
 export interface SubmissionRequest {
@@ -74,6 +72,12 @@ export const contestApi = {
   // Get contest details
   getContest: async (contestId: string): Promise<Contest> => {
     const response = await api.get(`/contests/${contestId}`);
+    return response.data;
+  },
+
+  // Get contest problems
+  getContestProblems: async (contestId: string): Promise<Problem[]> => {
+    const response = await api.get(`/contests/${contestId}/problems`);
     return response.data;
   },
 

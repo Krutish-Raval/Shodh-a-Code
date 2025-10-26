@@ -61,7 +61,7 @@ public class LocalExecutionService {
                 return Submission.SubmissionStatus.ACCEPTED;
 
             } finally {
-                // Clean up temporary directory
+                // Clean up temporary directory with retry on Windows
                 deleteDirectory(tempDir);
             }
 
@@ -251,17 +251,28 @@ public class LocalExecutionService {
 
     private void deleteDirectory(Path directory) {
         try {
+            // On Windows, files may still be locked by the process
+            // Add a small delay to allow file handles to be released
+            String os = System.getProperty("os.name").toLowerCase();
+            if (os.contains("windows")) {
+                try {
+                    Thread.sleep(100); // Small delay for Windows
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+
             Files.walk(directory)
                     .sorted((a, b) -> b.compareTo(a)) // Delete files before directories
                     .forEach(path -> {
                         try {
                             Files.delete(path);
                         } catch (IOException e) {
-                            logger.warn("Failed to delete file: {}", path, e);
+                            logger.warn("Failed to delete file: {}", path);
                         }
                     });
         } catch (IOException e) {
-            logger.warn("Failed to delete directory: {}", directory, e);
+            logger.warn("Failed to delete directory: {}", directory);
         }
     }
 }
