@@ -1,4 +1,4 @@
-# Shodh-a-Code 🚀
+# Shodh-a-Code 
 
 A full-stack competitive programming platform with real-time code execution, contest management, and live leaderboards. Built with Spring Boot, React, MongoDB Atlas, and Docker.
 
@@ -8,7 +8,7 @@ A full-stack competitive programming platform with real-time code execution, con
 ![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green?style=flat-square)
 ![Docker](https://img.shields.io/badge/Docker-Enabled-blue?style=flat-square)
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Features](#-features)
 - [Tech Stack](#-tech-stack)
@@ -20,7 +20,7 @@ A full-stack competitive programming platform with real-time code execution, con
 
 ---
 
-## ✨ Features
+##  Features
 
 - **Live Code Execution**: Support for Java, Python, C++, and C with Docker-based sandboxed execution
 - **Contest Management**: Create and manage coding contests with multiple problems
@@ -33,7 +33,7 @@ A full-stack competitive programming platform with real-time code execution, con
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 ### Backend
 
@@ -55,7 +55,7 @@ A full-stack competitive programming platform with real-time code execution, con
 
 ---
 
-## 🚀 Setup Instructions
+##  Setup Instructions
 
 ### Prerequisites
 
@@ -181,7 +181,7 @@ Update `backend/src/main/resources/application.properties` to switch modes.
 
 ---
 
-## 📡 API Documentation
+##  API Documentation
 
 ### Base URL
 
@@ -303,7 +303,7 @@ http://localhost:8080/api
 
 ---
 
-## 🏗 Design Choices & Architecture
+##  Design Choices & Architecture
 
 ### Backend Architecture
 
@@ -561,7 +561,7 @@ RUN apt-get install openjdk-17-jdk python3 gcc g++
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 Shodh-a-Code/
@@ -658,7 +658,7 @@ To quickly test the application, use these credentials:
 
 ---
 
-## 🔒 Security Considerations
+## Security Considerations
 
 - **Sandboxed Execution**: Docker containers isolate untrusted code
 - **Resource Limits**: Time and memory constraints prevent abuse
@@ -668,7 +668,7 @@ To quickly test the application, use these credentials:
 
 ---
 
-## 🚧 Future Enhancements
+## Future Enhancements
 
 - [ ] WebSocket support for real-time updates
 - [ ] User authentication and authorization
@@ -682,7 +682,7 @@ To quickly test the application, use these credentials:
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please follow these steps:
 
@@ -694,13 +694,13 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
-## 📄 License
+## License
 
 This project is open-source and available under the MIT License.
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **Krutish Raval**
 
@@ -708,7 +708,7 @@ This project is open-source and available under the MIT License.
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Spring Boot for the robust backend framework
 - React and Vite for the modern frontend tooling
@@ -718,4 +718,4 @@ This project is open-source and available under the MIT License.
 
 ---
 
-**Happy Coding! 🚀**
+**Happy Coding! **
