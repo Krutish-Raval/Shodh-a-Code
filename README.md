@@ -8,7 +8,7 @@ A full-stack competitive programming platform with real-time code execution, con
 ![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green?style=flat-square)
 ![Docker](https://img.shields.io/badge/Docker-Enabled-blue?style=flat-square)
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Features](#-features)
 - [Tech Stack](#-tech-stack)
@@ -33,7 +33,7 @@ A full-stack competitive programming platform with real-time code execution, con
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 ### Backend
 
@@ -561,7 +561,7 @@ RUN apt-get install openjdk-17-jdk python3 gcc g++
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 Shodh-a-Code/
@@ -650,7 +650,7 @@ Shodh-a-Code/
 
 ---
 
-## 🔒 Security Considerations
+## Security Considerations
 
 - **Sandboxed Execution**: Docker containers isolate untrusted code
 - **Resource Limits**: Time and memory constraints prevent abuse
@@ -660,7 +660,7 @@ Shodh-a-Code/
 
 ---
 
-## 🚧 Future Enhancements
+## Future Enhancements
 
 - [ ] WebSocket support for real-time updates
 - [ ] User authentication and authorization
@@ -674,7 +674,7 @@ Shodh-a-Code/
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please follow these steps:
 
@@ -710,4 +710,4 @@ This project is open-source and available under the MIT License.
 
 ---
 
-**Happy Coding! 🚀**
+**Happy Coding! **
