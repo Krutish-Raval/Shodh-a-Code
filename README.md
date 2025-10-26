@@ -604,14 +604,22 @@ Shodh-a-Code/
 
 ---
 
-## 💡 Usage
+##  Usage
+
+### Quick Start Demo
+
+To quickly test the application, use these credentials:
+
+- **Contest ID**: `68fd1377ad086d9b118e8d65`
+- **Username**: `john_doe` (or any username of your choice)
 
 ### For Participants
 
 1. **Join a Contest**
 
    - Navigate to `http://localhost:5173`
-   - Enter contest ID and your username
+   - Enter contest ID: `68fd1377ad086d9b118e8d65`
+   - Enter your username (e.g., `john_doe`)
    - Click "Join Contest"
 
 2. **Solve Problems**
